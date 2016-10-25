@@ -5,6 +5,19 @@
 # "PLOT_GL"
 # All response data MUST be numeric - character data will be converted to NAs
 
+library(devtools)
+install_github("jtlovell/pvGxE", quiet = TRUE)
+
 dat<-pvGxE.dataLoad(csv = "testPhenos.csv", directory = "./data")
 plotDistn(mergedData=dat, yColumn = "EMER50", nbins = 50,
           nrow = 5, freeYAxis=F, themeIn = theme_jtl)
+
+# split up the example data so that it can be combined
+system("mkdir ./data/sepfiles")
+for(i in unique(substr(dat$PLOT_GL,1,1))){
+  temp<-dat[substr(dat$PLOT_GL,1,1) == i,]
+  write.csv(temp, file = paste0("./data/sepfiles/",i,".csv"), row.names=F)
+}
+
+dat2<-combineDatasets(directory = "./data/sepfiles")
+identical(dat2, dat)
