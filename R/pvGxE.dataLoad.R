@@ -5,7 +5,6 @@
 #'
 #' @param csv The name of the csv file.
 #' @param directory The location of the csv.
-#' @import qtl
 #' @export
 pvGxE.dataLoad<-function(csv, directory = NULL, verbose=T){
   if(verbose) cat("installing and loading required libraries")
