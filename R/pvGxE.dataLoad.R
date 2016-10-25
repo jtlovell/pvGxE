@@ -1,16 +1,37 @@
-# Get data
-getData<-function(csv, directory = NULL){
+#' @title Import data for pvGxE
+#'
+#' @description
+#' \code{pvGxE.dataLoad} Function to load user-supplied data into R.
+#'
+#' @param csv The name of the csv file.
+#' @param directory The location of the csv.
+#' @import qtl
+#' @export
+pvGxE.dataLoad<-function(csv, directory = NULL){
+
+  pkgTest <- function(x)
+  {
+    if (!require(x,character.only = TRUE))
+    {
+      install.packages(x,dep=TRUE)
+      if(!require(x,character.only = TRUE)) stop("Package not found")
+    }
+  }
+
+  pkgTest("devtools")
+  install_github("jtlovell/pvGxE", quiet = TRUE)
+  install_github("jtlovell/qtlTools", quiet = TRUE)
+  library(pvGxE)
+  library(qtlTools)
+
   if(is.null(directory)){
     file = paste(getwd(),csv, sep = "/")
   }else{
     file = paste(directory, csv, sep = "/")
   }
   dat <- read.csv(file, header = T, stringsAsFactors = F)
-  return(dat)
-}
 
-# Merge with meta data
-mergeMeta<-function(dat, metaData){
+  data(metaData)
   if(!"PLOT_GL" %in% colnames(dat))
     stop("input data must have a PLOT_GL column\n")
   if(!any(dat$PLOT_GL %in% metaData$PLOT_GL)){
@@ -21,13 +42,6 @@ mergeMeta<-function(dat, metaData){
                    "\n these samples will be ignored"))
   }
   out<-merge(metaData, dat, by = "PLOT_GL")
-  return(out)
-}
-
-pvGxE.dataLoad<-function(csv, directory = NULL){
-  dat<-getData(csv, directory = directory)
-  data(metaData)
-  out<-mergeMeta(dat=dat, metaData=metaData)
   for(i in colnames(out)[-which(colnames(out) %in% colnames(metaData))])
     out[,i]<-as.numeric(out[,i])
   return(out)

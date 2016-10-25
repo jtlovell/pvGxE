@@ -1,3 +1,20 @@
+#' @title Get genotype*site means.
+#'
+#' @description
+#' \code{getLineSiteMeans} Sub routine to get line means for the pvGxE Experiment
+#'
+#' @param dat The dataframe containing parental data
+#' @param yColumn Character vector indicating the single response variable
+#' @param nbins The number of bins in the histogram
+#' @param histFill The color for histogram fill
+#' @param freeXAxis Logical, should the xaxis scales be independent
+#' @param freeYAxis Logical, should the yaxis scales be independent
+#' @param themeIn What ggplot theme should be used?
+#' @param nrows The number of rows in the faceted panels.
+#'
+#' @importFrom ggplot2 ggplot
+#' @importFrom qtlTools theme_jtlbar
+#' @export
 plotDistn<-function(mergedData, yColumn, nbins = 30, histFill = "grey50", freeXAxis = F, freeYAxis = T,
                     themeIn = theme_jtlbar, nrows = 3){
   parents<-c("AP13", "DAC", "AxD", "WBC", "VS16", "VxW")

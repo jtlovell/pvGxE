@@ -1,4 +1,11 @@
-
+#' @title Get genotype*site means.
+#'
+#' @description
+#' \code{getLineSiteMeans} Sub routine to get line means for the pvGxE Experiment
+#'
+#' @param dat The dataframe containing parental data
+#' @param y Character vector indicating the single response variable
+#' Only 1 phenotype can be tested at a time.
 #' @import qtl
 #' @export
 getLineSiteMeans<-function(dat, y){
