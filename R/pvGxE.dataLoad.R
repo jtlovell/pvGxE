@@ -28,5 +28,7 @@ pvGxE.dataLoad<-function(csv, directory = NULL){
   dat<-getData(csv, directory = directory)
   data(metaData)
   out<-mergeMeta(dat=dat, metaData=metaData)
+  for(i in colnames(out)[-which(colnames(out) %in% colnames(metaData))])
+    out[,i]<-as.numeric(out[,i])
   return(out)
 }
