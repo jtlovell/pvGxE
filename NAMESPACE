@@ -3,5 +3,4 @@
 export(getLineSiteMeans)
 export(plotDistn)
 export(pvGxE.dataLoad)
-import(qtl)
 importFrom(ggplot2,ggplot)
