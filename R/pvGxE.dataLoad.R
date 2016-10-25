@@ -5,9 +5,10 @@
 #'
 #' @param csv The name of the csv file.
 #' @param directory The location of the csv.
+#' @param verbose Should updates on progress be printed?
 #' @export
 pvGxE.dataLoad<-function(csv, directory = NULL, verbose=T){
-  if(verbose) cat("installing and loading required libraries")
+  if(verbose) cat("installing and loading required libraries\n")
   library(devtools)
   install_github("jtlovell/pvGxE", quiet = TRUE)
   install_github("jtlovell/qtlTools", quiet = TRUE)
@@ -19,6 +20,8 @@ pvGxE.dataLoad<-function(csv, directory = NULL, verbose=T){
   }else{
     file = paste(directory, csv, sep = "/")
   }
+
+  if(verbose) cat("loading and merging datasets\n")
   dat <- read.csv(file, header = T, stringsAsFactors = F)
 
   data(metaData)
@@ -32,7 +35,9 @@ pvGxE.dataLoad<-function(csv, directory = NULL, verbose=T){
                    "\n these samples will be ignored"))
   }
   out<-merge(metaData, dat, by = "PLOT_GL")
-  for(i in colnames(out)[-which(colnames(out) %in% colnames(metaData))])
-    out[,i]<-as.numeric(out[,i])
+  suppressWarnings(
+    for(i in colnames(out)[-which(colnames(out) %in% colnames(metaData))])
+      out[,i]<-as.numeric(out[,i])
+  )
   return(out)
 }

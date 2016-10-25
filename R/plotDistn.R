@@ -65,7 +65,7 @@ plotDistn<-function(mergedData, yColumn, nbins = 30, histFill = "grey50", freeXA
 
   print(
     ggplot(tp, aes_string(x = yColumn))+
-      geom_histogram(bins = 30, fill = "grey50")+
+      geom_histogram(bins = nbins, fill = "grey50")+
       geom_segment(data = tp[!is.na(tp$sem),],
                    aes(y = ywt, yend = ywt,
                        x = lowci, xend = hici),
