@@ -2,6 +2,8 @@
 #'
 #' A dataset containing the unique plant identifiers and all metadat.
 #'
+#' @docType data
+#' @usage data(metaData)
 #' \itemize{
 #'   \item CROSS The cross origin of each line.
 #'   \item LINE The 4-way or parental id.
@@ -18,4 +20,3 @@
 #'
 #' @format A data frame with 5617 rows and 11 variables
 "metaData"
-#> [1] "metaData"
