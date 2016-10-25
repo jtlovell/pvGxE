@@ -13,7 +13,6 @@
 #' @param nrows The number of rows in the faceted panels.
 #'
 #' @importFrom ggplot2 ggplot
-#' @importFrom qtlTools theme_jtlbar
 #' @export
 plotDistn<-function(mergedData, yColumn, nbins = 30, histFill = "grey50", freeXAxis = F, freeYAxis = T,
                     themeIn = theme_jtlbar, nrows = 3){

@@ -7,8 +7,8 @@
 #' @param directory The location of the csv.
 #' @import qtl
 #' @export
-pvGxE.dataLoad<-function(csv, directory = NULL){
-
+pvGxE.dataLoad<-function(csv, directory = NULL, verbose=T){
+  if(verbose) cat("installing and loading required libraries")
   library(devtools)
   install_github("jtlovell/pvGxE", quiet = TRUE)
   install_github("jtlovell/qtlTools", quiet = TRUE)

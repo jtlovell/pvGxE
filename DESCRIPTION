@@ -1,10 +1,13 @@
 Package: pvGxE
 Type: Package
-Title: What the Package Does (Title Case)
+Title: R data analytics for the P. virgatum GxE project
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
+Author: J.T. Lovell
+Maintainer: J.T. Lovell <johntlovell@gmail.com>
 Description: More about what it does (maybe more than one line)
-License: What license is it under?
+Depends:
+  ggplot2
+License: GPL-3
 LazyData: TRUE
 RoxygenNote: 5.0.1
+

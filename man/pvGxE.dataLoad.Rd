@@ -4,7 +4,7 @@
 \alias{pvGxE.dataLoad}
 \title{Import data for pvGxE}
 \usage{
-pvGxE.dataLoad(csv, directory = NULL)
+pvGxE.dataLoad(csv, directory = NULL, verbose = T)
 }
 \arguments{
 \item{csv}{The name of the csv file.}
