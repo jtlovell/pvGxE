@@ -7,6 +7,10 @@
 \format{A data frame with 5617 rows and 11 variables}
 \usage{
 data(metaData)
+}
+\description{
+A dataset containing the unique plant identifiers and all metadat.
+The following are the columns and information
 \itemize{
   \item CROSS The cross origin of each line.
   \item LINE The 4-way or parental id.
@@ -20,9 +24,6 @@ data(metaData)
   \item NOTE_PLANTING ...
   \item NOTE_REFERENCE ...
 }
-}
-\description{
-A dataset containing the unique plant identifiers and all metadat.
 }
 \keyword{datasets}
 

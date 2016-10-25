@@ -1,9 +1,7 @@
 #' The P. virgatum GxE experiment metadata
 #'
 #' A dataset containing the unique plant identifiers and all metadat.
-#'
-#' @docType data
-#' @usage data(metaData)
+#' The following are the columns and information
 #' \itemize{
 #'   \item CROSS The cross origin of each line.
 #'   \item LINE The 4-way or parental id.
@@ -17,6 +15,9 @@
 #'   \item NOTE_PLANTING ...
 #'   \item NOTE_REFERENCE ...
 #' }
+#' @docType data
+#' @usage data(metaData)
+#'
 #'
 #' @format A data frame with 5617 rows and 11 variables
 "metaData"
