@@ -7,6 +7,9 @@
 
 library(devtools)
 install_github("jtlovell/pvGxE", quiet = TRUE)
+install_github("jtlovell/qtlTools", quiet = TRUE)
+library(qtlTools)
+library(pvGxE)
 
 dat<-pvGxE.dataLoad(csv = "testPhenos.csv", directory = "./data")
 plotDistn(mergedData=dat, yColumn = "EMER50", nbins = 50,
@@ -21,3 +24,7 @@ for(i in unique(substr(dat$PLOT_GL,1,1))){
 
 dat2<-combineDatasets(directory = "./data/sepfiles")
 identical(dat2, dat)
+
+cross <- read.cross("csvr", , "~/Downloads/NSF_4WCR_Milano_rQTL_InputFile.csv", genotypes=NULL, alleles=c("A", "B", "C", "D"))
+cross2 <- rep.pickMarkerSubset(cross, min.distance = 1)
+# mergeCross

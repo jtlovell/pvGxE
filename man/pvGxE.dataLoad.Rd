@@ -10,6 +10,8 @@ pvGxE.dataLoad(csv, directory = NULL, verbose = T)
 \item{csv}{The name of the csv file.}
 
 \item{directory}{The location of the csv.}
+
+\item{verbose}{Should updates on progress be printed?}
 }
 \description{
 \code{pvGxE.dataLoad} Function to load user-supplied data into R.
