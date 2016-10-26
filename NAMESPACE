@@ -2,6 +2,7 @@
 
 export(combineDatasets)
 export(getLineSiteMeans)
+export(mergeCross)
 export(plotDistn)
 export(pvGxE.dataLoad)
 importFrom(ggplot2,ggplot)

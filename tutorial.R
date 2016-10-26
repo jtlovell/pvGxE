@@ -25,6 +25,17 @@ for(i in unique(substr(dat$PLOT_GL,1,1))){
 dat2<-combineDatasets(directory = "./data/sepfiles")
 identical(dat2, dat)
 
-cross <- read.cross("csvr", , "~/Downloads/NSF_4WCR_Milano_rQTL_InputFile.csv", genotypes=NULL, alleles=c("A", "B", "C", "D"))
-cross2 <- rep.pickMarkerSubset(cross, min.distance = 1)
+cross <- read.cross("csvr", , "~/Downloads/NSF_4WCR_Milano_rQTL_InputFile.csv",
+                    genotypes=NULL, alleles=c("A", "B", "C", "D"))
+cross <- repPickMarkerSubset(cross, min.distance = 1)
+cross <- calc.genoprob(cross, step = 1, stepwidth = "max",
+                       error.prob = 0.001, map.function = "kosambi")
+cross <- sim.geno(cross, step = 1, stepwidth = "max", n.draws = 64,
+                       error.prob = 0.001, map.function = "kosambi")
+cross<-subset(cross, ind = order(pull.pheno(cross)[,1]))
+save(cross, file = "./data/cross.rda")
+
+cross2<-mergeCross(dat)
 # mergeCross
+
+
